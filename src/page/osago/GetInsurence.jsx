@@ -1,6 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
+import getCar from '../../component/getCar';
+import { useNavigate } from 'react-router-dom';
+
+
 
 function Header() {
+
+  const navigate = useNavigate();
+
+  const [car, setCar] = useState();
+  const [error, setError] = useState('Bu error row')
+
+  const [techpassportseria, setTechpassportseria] = useState();
+  const [techPassportNumber, SetTechPassportNumber] = useState();
+  const [govNumber, setGovNumber] = useState();
+
+  function salom(){
+    console.log(techpassportseria, techPassportNumber, govNumber)
+  }
+salom()
+
+  const req =async () =>{
+    console.log(govNumber, techPassportNumber, techpassportseria)
+    let req = await getCar(govNumber, techpassportseria, techPassportNumber)
+    console.log(req);
+    if(await req.req){
+      setCar(req)
+    }else{
+      navigate('osago');
+      setError("Malumotlaringiz xato")
+    }
+  }
+
+
+  
   return (
     <div className="container flex flex-col mx-auto text-white">
   <div className="grid w-full grid-cols-1 my-auto mt-12 mb-8 md:grid-cols-2 xl:gap-14 md:gap-5">
@@ -43,6 +76,27 @@ function Header() {
           Book a free call
         </button>
       </div>
+      <div className='grid grid-cols-4 grid-flow-row	my-5	 '>
+       <div className='col-span-1 gap-2 border-b-2' >
+       <label htmlFor="car">Car</label>
+        <input onChange={e => setTechpassportseria(e.target.value)} placeholder='seria' type="text" className='col-span-1 bg-transparent  outline-none uppercase py-2 px-3' />
+       </div> 
+       <div className='col-span-1 row-span-1 border-b-2'> 
+       <label htmlFor="car">Car</label> 
+        <input onChange={e => SetTechPassportNumber(e.target.value)} placeholder='Seria' type="text" className='col-span-1 bg-transparent  outline-none  uppercase py-2 px-3' />
+       </div>
+      </div>
+      <div className='grid grid-cols-2'> 
+      <div>
+       <label htmlFor="car">Car</label> 
+        <input onChange={e => setGovNumber(e.target.value)} placeholder='Numer' type="text" className='border-b-2 bg-transparent  uppercase  outline-none   py-2 px-3' />
+
+      </div>
+      <div>
+        <button onClick={req} className='rounded-full border py-3 px-7' > Get </button>
+      </div>
+       </div>
+       <div className='text-red-400 my-2'> <h6>{error}</h6>  </div>
     </div>
     <div className="items-center justify-end hidden col-span-1 md:flex">
       <img

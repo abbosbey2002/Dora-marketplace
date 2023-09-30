@@ -1,17 +1,23 @@
 
 import { NavLink } from 'react-router-dom';
 import Navbar from './component/Navbar';
-import Header from './component/Header';
+
 import Service from './component/Service';
 import Footer from './component/Footer';
+import { useState } from 'react';
+import Osago from './page/osago/GetInsurence';
+import GetAccidentInsur from './page/accident/GetAccidentInsur';
 
 function App() {
+
+  const [service, setService] = useState('accident');
 
 
   return (
     <>
     <Navbar />
-    <Header />
+    {service === "osago" && <Osago />}
+    {service === "accident" && <GetAccidentInsur />}
     <Service />
     <Footer />
     </>
