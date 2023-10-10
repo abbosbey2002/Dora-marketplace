@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="https://checkout.paycom.uz" method="POST" onsubmit="addZero()">
+        <input type="hidden" name="merchant" value="651fabfb2072915c7704450b">
+        <div class="form-1">
+            <div class="row row-form">
+                <div class="column-12">
+                    <p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" id="form-name-2" aria-required="true" aria-invalid="false" placeholder="Your Name *"  name="account[name]" type="text" ></span>
+                    </p>
+                </div>
+                <div class="column-12">
+                    <p><span class="wpcf7-form-control-wrap" data-name="your-tel"><input size="40" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" id="form-tel-2" aria-required="true" aria-invalid="false" placeholder="Number *" value="" type="text" name="account[phone]"></span>
+                    </p>
+                </div>
+            </div>
+            <div class="row row-form">
+                <div class="column-12">
+                    <p><span class="wpcf7-form-control-wrap" data-name="your-tel"><input size="40" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" id="amount" aria-required="true" aria-invalid="false" placeholder="Sum *" value="" type="text" name="amount"></span>
+                    </p>
+                </div>
+            </div>
+            <div class="wpcf7-button">
+                <p><button type="submit" value="Submit"><span>To pay<i class="bexper-icon-chevron-right"></i></span></button>
+                </p>
+            </div>
+        </div>
+        <div class="wpcf7-response-output" aria-hidden="true"></div>
+    </form>
+</body>
+</html>

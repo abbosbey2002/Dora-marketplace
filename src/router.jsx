@@ -6,6 +6,7 @@ import Notfound from "./Notfound";
 import DefaultLayout from "./component/DefaultLayout";
 import Osago from "./page/osago/Osago";
 import Accident from "./page/accident/Accident";
+import Calculate from "./page/osago/Calculate";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
     {
         path: "/accident",
         element: <Accident />
+    },
+    {
+        path: "/calculate",
+        element: <Calculate />
     },
   
     {

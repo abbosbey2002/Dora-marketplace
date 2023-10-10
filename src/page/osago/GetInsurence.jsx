@@ -11,23 +11,17 @@ function Header() {
   const [car, setCar] = useState();
   const [error, setError] = useState('Bu error row')
 
-  const [techpassportseria, setTechpassportseria] = useState();
-  const [techPassportNumber, SetTechPassportNumber] = useState();
-  const [govNumber, setGovNumber] = useState();
-
-  function salom(){
-    console.log(techpassportseria, techPassportNumber, govNumber)
-  }
-salom()
+  const [techpassportseria, setTechpassportseria] = useState('AAF');
+  const [techPassportNumber, SetTechPassportNumber] = useState('3132507');
+  const [govNumber, setGovNumber] = useState('01D797EB');
 
   const req =async () =>{
-    console.log(govNumber, techPassportNumber, techpassportseria)
     let req = await getCar(govNumber, techpassportseria, techPassportNumber)
-    console.log(req);
     if(await req.req){
       setCar(req)
-    }else{
+      localStorage.setItem("car", (JSON.stringify({...req, techpassportseria, techPassportNumber})));
       navigate('osago');
+    }else{
       setError("Malumotlaringiz xato")
     }
   }
@@ -76,26 +70,35 @@ salom()
           Book a free call
         </button>
       </div>
-      <div className='grid grid-cols-4 grid-flow-row	my-5	 '>
-       <div className='col-span-1 gap-2 border-b-2' >
-       <label htmlFor="car">Car</label>
-        <input onChange={e => setTechpassportseria(e.target.value)} placeholder='seria' type="text" className='col-span-1 bg-transparent  outline-none uppercase py-2 px-3' />
-       </div> 
-       <div className='col-span-1 row-span-1 border-b-2'> 
-       <label htmlFor="car">Car</label> 
-        <input onChange={e => SetTechPassportNumber(e.target.value)} placeholder='Seria' type="text" className='col-span-1 bg-transparent  outline-none  uppercase py-2 px-3' />
-       </div>
-      </div>
-      <div className='grid grid-cols-2'> 
-      <div>
-       <label htmlFor="car">Car</label> 
-        <input onChange={e => setGovNumber(e.target.value)} placeholder='Numer' type="text" className='border-b-2 bg-transparent  uppercase  outline-none   py-2 px-3' />
+     {/* content */}
 
-      </div>
-      <div>
-        <button onClick={req} className='rounded-full border py-3 px-7' > Get </button>
-      </div>
-       </div>
+     <div className='grid grid-cols-12 grid-flow-row gap-2 my-5	 '>
+
+<div className='col-span-2'>
+    <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-200 ">
+        Car number
+    </label>
+    <input defaultValue='01D797EB' onChange={e => setGovNumber(e.target.value)} type="text" id="" className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="01D797EB" required=""/>
+</div>
+<div className='col-span-3'>
+    <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-200 ">
+        Tech seria
+    </label>
+    <input defaultValue='AAC' onChange={e => setTechpassportseria(e.target.value)}  type="text" id="" className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="AAF" required=""/>
+</div>
+<div className='col-span-3'>
+    <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-200 ">
+        Tech number
+    </label>
+    <input defaultValue='3132507'  onChange={e => SetTechPassportNumber(e.target.value)}  type="text" id="" className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="3132507" required=""/>
+</div>
+<div>
+    <button onClick={req} className='border px-4 rounded-lg py-2'>Dalshe</button>
+</div>
+</div>
+
+     {/* content */}
+     
        <div className='text-red-400 my-2'> <h6>{error}</h6>  </div>
     </div>
     <div className="items-center justify-end hidden col-span-1 md:flex">

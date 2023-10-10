@@ -10,7 +10,7 @@ import GetAccidentInsur from './page/accident/GetAccidentInsur';
 
 function App() {
 
-  const [service, setService] = useState('accident');
+  const [service, setService] = useState('osago');
 
 
   return (
