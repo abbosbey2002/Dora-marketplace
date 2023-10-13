@@ -35,7 +35,7 @@ function GetAccidentInsur() {
                     <div className="flex items-center justify-center mb-4 lg:justify-normal">
                         <img className="h-5" src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/motion-tailwind/img/logos/logo-1.png" alt="logo"/>
                         <h4 className="ml-2 text-sm font-bold tracking-widest text-primary uppercase">
-                            Explore the Latest Tailwind Template
+                            Osago
                         </h4>
                     </div>
                     <h1 className="mb-8 text-4xl font-extrabold leading-tight lg:text-6xl text-dark-grey-900">

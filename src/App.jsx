@@ -19,7 +19,7 @@ function App() {
     {service === "osago" && <Osago />}
     {service === "accident" && <GetAccidentInsur />}
     <Service />
-    <Footer />
+    {/* <Footer /> */}
     </>
   )
 }
